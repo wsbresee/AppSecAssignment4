@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <h1>Please register</h1>
+    </head>
+    <body>
+        <div class="container">
+            <form action="" method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <INPUT SIZE=32 id=uname type="text" name="uname" TYPE='text'/><p/>
+                <INPUT SIZE=32 id=pword type="password" name="pword" TYPE='text'/><p/>
+                <INPUT SIZE=32 id=2fa type="text" name="2fa" TYPE='text'><p/>
+                <button id="registerbutton" type="submit">Search</button>
+            </form>
+            <p id=success>{{ error }}</p>
+        </div>
+    </body>
+</html>

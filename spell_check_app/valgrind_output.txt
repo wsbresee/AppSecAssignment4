@@ -1,0 +1,36 @@
+==16347== Memcheck, a memory error detector
+==16347== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==16347== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==16347== Command: ./spell_check test1.txt wordlist.txt s
+==16347== 
+==16347== Conditional jump or move depends on uninitialised value(s)
+==16347==    at 0x4C30F78: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16347==    by 0x4009C4: hash_function (in /home/willy/application_security/spell_check)
+==16347==    by 0x400EE8: check_word (in /home/willy/application_security/spell_check)
+==16347==    by 0x400B22: check_words (in /home/willy/application_security/spell_check)
+==16347==    by 0x400FE6: main (in /home/willy/application_security/spell_check)
+==16347== 
+final misspelled words: sogn
+skyn
+betta
+==16347== 
+==16347== FILE DESCRIPTORS: 3 open at exit.
+==16347== Open file descriptor 2: /home/willy/application_security/valgrind_output.txt
+==16347==    <inherited from parent>
+==16347== 
+==16347== Open file descriptor 1: /home/willy/application_security/valgrind_output.txt
+==16347==    <inherited from parent>
+==16347== 
+==16347== Open file descriptor 0: /dev/pts/18
+==16347==    <inherited from parent>
+==16347== 
+==16347== 
+==16347== HEAP SUMMARY:
+==16347==     in use at exit: 0 bytes in 0 blocks
+==16347==   total heap usage: 123,142 allocs, 123,142 frees, 6,908,848 bytes allocated
+==16347== 
+==16347== All heap blocks were freed -- no leaks are possible
+==16347== 
+==16347== For counts of detected and suppressed errors, rerun with: -v
+==16347== Use --track-origins=yes to see where uninitialised values come from
+==16347== ERROR SUMMARY: 3 errors from 1 contexts (suppressed: 0 from 0)

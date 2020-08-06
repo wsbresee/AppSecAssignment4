@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <h1>Login History</h1>
+    </head>
+    <body>
+        {% if admin %}
+            <form action='' method='post'>
+                <input type=hidden name='csrf_token' value="{{ csrf_token() }}"/>
+                <INPUT SIZE=32 id=userid type='text' name='userid'/>
+                <button id=loginbutton type='submit'>Search</button>
+            </form>
+        {% endif %}
+        <div class="container">
+            <ul>
+            {% for record in records %}
+            <li id=login{{ record.id }}>{{ record.id }}</li>
+            <li id=login{{ record.id }}_time>{{ record.login_time }}</li>
+                {% if record.logout_time %}
+                    <li id=logout{{ record.id }}_time>{{ record.logout_time }}</li>
+                {% else %}
+                    <li id=logout{{ record.id }}_time>N/A.</li>
+                {% endif %}
+            </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>

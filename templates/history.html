@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <h1>History</h1>
+    </head>
+    <body>
+        <p id=numqueries>{{ number_of_records }}</p>
+        <div class="container">
+            {% for record in records %}
+                <a id="query{{ record.id }}" href="/history/query{{ record.id }}">{{ record.id }}</a>
+            {% endfor %}
+        </div>
+        {% if admin %}
+            <form action='' method='post'>
+                <input type=hidden name='csrf_token' value="{{ csrf_token() }}"/>
+                <INPUT SIZE=32 id=userquery type='text' name='userquery'/>
+                <button id=loginbutton type='submit'>Search</button>
+            </form>
+        {% endif %}
+    </body>
+</html>

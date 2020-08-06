@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <h1>Spell Check</h1>
+    </head>
+    <body>
+        <div class="container">
+            <form action="" method="post">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <input id=inputtext type="text" placeholder="input" name="inputtext" value="{{ request.form.inputtext }}">
+                <input class="btn btn-default" type="submit" value="Check My Text!">
+            </form>
+            {% if textout %}
+                <p id=textout>{{ textout }}</p>
+            {% endif %}
+            {% if textout %}
+                <p id=misspelled>{{ misspelled }}</p>
+            {% endif %}
+        </div>
+    </body>
+</html>
